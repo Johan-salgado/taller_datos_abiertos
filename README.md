@@ -223,17 +223,3 @@ El repositorio utiliza el modelo GitFlow establecido:
    ```
 
 ---
-
-## 10. Guía para el Video de Sustentación
-Para el video requerido por el docente (entregable 2), se sugiere la siguiente estructura de 3 a 5 minutos:
-1. **Presentación (30 seg):** Saludo, nombre completo (Johan Eliu Salgado Castro), materia y objetivo del taller.
-2. **Demostración de la App (1:30 min):**
-   * Mostrar el Dashboard y las 4 opciones.
-   * Entrar a cada listado mostrando la carga y el listado con `ListView.builder`.
-   * Entrar a cada pantalla de detalle (Maestro-Detalle con `go_router`).
-3. **Explicación del Código (1:30 min):**
-   * Mostrar `pubspec.yaml` y `.env` con `flutter_dotenv`.
-   * Mostrar `services/api_service.dart` y explicar el `http.get` con validación `statusCode == 200` y manejo de excepciones.
-   * Mostrar un modelo en `models/` explicando `fromJson` y `toJson`.
-   * Mostrar `routes/app_router.dart` explicando cómo viajan los parámetros mediante `state.extra`.
-4. **GitFlow y Cierre (30 seg):** Mostrar el historial de ramas (`main`, `dev`, `feature/taller_api_colombia`) y el Pull Request en GitHub.
