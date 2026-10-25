@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../models/tourist_attraction.dart';
 
 class AttractionDetailView extends StatelessWidget {
@@ -11,15 +12,12 @@ class AttractionDetailView extends StatelessWidget {
     final hasImages = attraction.images.isNotEmpty;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(attraction.name),
-      ),
+      appBar: AppBar(title: Text(attraction.name)),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Galería o Imagen principal
             Card(
               clipBehavior: Clip.antiAlias,
               child: Column(
@@ -33,14 +31,22 @@ class AttractionDetailView extends StatelessWidget {
                       errorBuilder: (context, error, stackTrace) => Container(
                         height: 180,
                         color: Colors.grey.shade200,
-                        child: const Icon(Icons.broken_image, size: 60, color: Colors.grey),
+                        child: const Icon(
+                          Icons.broken_image,
+                          size: 60,
+                          color: Colors.grey,
+                        ),
                       ),
                     )
                   else
                     Container(
                       height: 180,
                       color: Colors.grey.shade200,
-                      child: const Icon(Icons.landscape, size: 60, color: Colors.grey),
+                      child: const Icon(
+                        Icons.landscape,
+                        size: 60,
+                        color: Colors.grey,
+                      ),
                     ),
                   Padding(
                     padding: const EdgeInsets.all(16.0),
@@ -58,7 +64,11 @@ class AttractionDetailView extends StatelessWidget {
                           const SizedBox(height: 6),
                           Row(
                             children: [
-                              const Icon(Icons.location_on, size: 16, color: Color(0xFF43A047)),
+                              const Icon(
+                                Icons.location_on,
+                                size: 16,
+                                color: Color(0xFF43A047),
+                              ),
                               const SizedBox(width: 4),
                               Text(
                                 attraction.cityName!,
@@ -76,10 +86,7 @@ class AttractionDetailView extends StatelessWidget {
                 ],
               ),
             ),
-
             const SizedBox(height: 12),
-
-            // Tarjeta de Coordenadas
             if (attraction.latitude != null || attraction.longitude != null)
               Card(
                 child: Padding(
@@ -89,12 +96,19 @@ class AttractionDetailView extends StatelessWidget {
                     children: [
                       const Text(
                         'Coordenadas Geográficas',
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       const Divider(height: 20),
                       Row(
                         children: [
-                          const Icon(Icons.explore_outlined, size: 20, color: Color(0xFF43A047)),
+                          const Icon(
+                            Icons.explore_outlined,
+                            size: 20,
+                            color: Color(0xFF43A047),
+                          ),
                           const SizedBox(width: 12),
                           Text('Latitud: ${attraction.latitude ?? "N/A"}'),
                         ],
@@ -102,7 +116,11 @@ class AttractionDetailView extends StatelessWidget {
                       const SizedBox(height: 8),
                       Row(
                         children: [
-                          const Icon(Icons.explore_outlined, size: 20, color: Color(0xFF43A047)),
+                          const Icon(
+                            Icons.explore_outlined,
+                            size: 20,
+                            color: Color(0xFF43A047),
+                          ),
                           const SizedBox(width: 12),
                           Text('Longitud: ${attraction.longitude ?? "N/A"}'),
                         ],
@@ -111,10 +129,7 @@ class AttractionDetailView extends StatelessWidget {
                   ),
                 ),
               ),
-
             const SizedBox(height: 12),
-
-            // Tarjeta de Descripción
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -123,7 +138,10 @@ class AttractionDetailView extends StatelessWidget {
                   children: [
                     const Text(
                       'Acerca del lugar',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     const Divider(height: 20),
                     Text(

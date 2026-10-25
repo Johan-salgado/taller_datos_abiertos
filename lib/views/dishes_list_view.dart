@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
 import '../models/typical_dish.dart';
 import '../routes/app_router.dart';
 import '../services/api_service.dart';
@@ -32,14 +33,14 @@ class _DishesListViewState extends State<DishesListView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Platos Típicos'),
-      ),
+      appBar: AppBar(title: const Text('Platos Típicos')),
       body: FutureBuilder<List<TypicalDish>>(
         future: _futureDishes,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const LoadingView(message: 'Cargando delicias colombianas...');
+            return const LoadingView(
+              message: 'Cargando delicias colombianas...',
+            );
           }
 
           if (snapshot.hasError) {
@@ -63,11 +64,15 @@ class _DishesListViewState extends State<DishesListView> {
               itemCount: dishes.length,
               itemBuilder: (context, index) {
                 final dish = dishes[index];
-                final hasImage = dish.imageUrl != null && dish.imageUrl!.isNotEmpty;
+                final hasImage =
+                    dish.imageUrl != null && dish.imageUrl!.isNotEmpty;
 
                 return Card(
                   child: ListTile(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
+                    ),
                     leading: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: hasImage
@@ -76,18 +81,25 @@ class _DishesListViewState extends State<DishesListView> {
                               width: 52,
                               height: 52,
                               fit: BoxFit.cover,
-                              errorBuilder: (context, error, stackTrace) => Container(
-                                width: 52,
-                                height: 52,
-                                color: Colors.grey.shade200,
-                                child: const Icon(Icons.restaurant, color: Colors.grey),
-                              ),
+                              errorBuilder: (context, error, stackTrace) =>
+                                  Container(
+                                    width: 52,
+                                    height: 52,
+                                    color: Colors.grey.shade200,
+                                    child: const Icon(
+                                      Icons.restaurant,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
                             )
                           : Container(
                               width: 52,
                               height: 52,
                               color: Colors.grey.shade200,
-                              child: const Icon(Icons.restaurant, color: Colors.grey),
+                              child: const Icon(
+                                Icons.restaurant,
+                                color: Colors.grey,
+                              ),
                             ),
                     ),
                     title: Text(
@@ -98,7 +110,10 @@ class _DishesListViewState extends State<DishesListView> {
                       dish.departmentName != null
                           ? 'Origen: ${dish.departmentName}'
                           : 'Gastronomía Colombiana',
-                      style: TextStyle(color: Colors.grey.shade600, fontSize: 13),
+                      style: TextStyle(
+                        color: Colors.grey.shade600,
+                        fontSize: 13,
+                      ),
                     ),
                     trailing: const Icon(
                       Icons.arrow_forward_ios,
@@ -106,10 +121,7 @@ class _DishesListViewState extends State<DishesListView> {
                       color: Colors.grey,
                     ),
                     onTap: () {
-                      context.pushNamed(
-                        AppRouter.dishDetail,
-                        extra: dish,
-                      );
+                      context.pushNamed(AppRouter.dishDetail, extra: dish);
                     },
                   ),
                 );

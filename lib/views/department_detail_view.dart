@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../models/department.dart';
 
 class DepartmentDetailView extends StatelessWidget {
@@ -9,15 +10,12 @@ class DepartmentDetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(department.name),
-      ),
+      appBar: AppBar(title: Text(department.name)),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Cabecera con nombre e icono
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
@@ -59,10 +57,7 @@ class DepartmentDetailView extends StatelessWidget {
                 ),
               ),
             ),
-
             const SizedBox(height: 12),
-
-            // Resumen estadístico
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -71,7 +66,10 @@ class DepartmentDetailView extends StatelessWidget {
                   children: [
                     const Text(
                       'Datos Generales',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     const Divider(height: 20),
                     _buildInfoRow(
@@ -99,10 +97,7 @@ class DepartmentDetailView extends StatelessWidget {
                 ),
               ),
             ),
-
             const SizedBox(height: 12),
-
-            // Descripción
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -111,7 +106,10 @@ class DepartmentDetailView extends StatelessWidget {
                   children: [
                     const Text(
                       'Descripción',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     const Divider(height: 20),
                     Text(

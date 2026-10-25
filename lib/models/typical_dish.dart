@@ -24,7 +24,8 @@ class TypicalDish {
     return TypicalDish(
       id: json['id'] as int? ?? 0,
       name: json['name'] as String? ?? 'Plato típico',
-      description: json['description'] as String? ?? 'Sin descripción disponible',
+      description:
+          json['description'] as String? ?? 'Sin descripción disponible',
       ingredients: json['ingredients'] as String?,
       imageUrl: json['imageUrl'] as String?,
       departmentName: depName,

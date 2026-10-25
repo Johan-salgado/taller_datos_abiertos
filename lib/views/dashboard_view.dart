@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
 import '../routes/app_router.dart';
 import '../widgets/endpoint_card.dart';
 
@@ -23,7 +24,9 @@ class DashboardView extends StatelessWidget {
                 applicationLegalese: 'Taller 4 - Consumo de API Pública\nUCEVA',
                 children: const [
                   SizedBox(height: 12),
-                  Text('Aplicación desarrollada en Flutter consumiendo api-colombia.com.'),
+                  Text(
+                    'Aplicación desarrollada en Flutter consumiendo api-colombia.com.',
+                  ),
                 ],
               );
             },
@@ -34,7 +37,6 @@ class DashboardView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Banner de bienvenida
             Container(
               padding: const EdgeInsets.all(24.0),
               decoration: const BoxDecoration(
@@ -84,9 +86,7 @@ class DashboardView extends StatelessWidget {
                 ],
               ),
             ),
-
             const SizedBox(height: 20),
-
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 18.0),
               child: Text(
@@ -98,10 +98,7 @@ class DashboardView extends StatelessWidget {
                 ),
               ),
             ),
-
             const SizedBox(height: 10),
-
-            // Tarjetas de navegación hacia cada endpoint
             EndpointCard(
               title: 'Departamentos',
               description: 'Consulta los 32 departamentos, capitales, áreas y población.',
@@ -109,7 +106,6 @@ class DashboardView extends StatelessWidget {
               iconColor: const Color(0xFF0F3B66),
               onTap: () => context.pushNamed(AppRouter.departmentsList),
             ),
-
             EndpointCard(
               title: 'Presidentes',
               description: 'Línea de tiempo de los mandatarios colombianos y sus períodos.',
@@ -117,7 +113,6 @@ class DashboardView extends StatelessWidget {
               iconColor: const Color(0xFF1E88E5),
               onTap: () => context.pushNamed(AppRouter.presidentsList),
             ),
-
             EndpointCard(
               title: 'Atracciones Turísticas',
               description: 'Lugares emblemáticos, parques naturales y puntos de interés.',
@@ -125,15 +120,14 @@ class DashboardView extends StatelessWidget {
               iconColor: const Color(0xFF43A047),
               onTap: () => context.pushNamed(AppRouter.attractionsList),
             ),
-
             EndpointCard(
               title: 'Platos Típicos',
-              description: 'Gastronomía tradicional colombiana, recetas e ingredientes.',
+              description:
+                  'Gastronomía tradicional colombiana, recetas e ingredientes.',
               icon: Icons.restaurant_menu_rounded,
               iconColor: const Color(0xFFFB8C00),
               onTap: () => context.pushNamed(AppRouter.dishesList),
             ),
-
             const SizedBox(height: 24),
           ],
         ),

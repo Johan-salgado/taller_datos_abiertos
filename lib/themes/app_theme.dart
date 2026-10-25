@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  // Colores principales
-  static const Color primaryColor = Color(0xFF0F3B66); // Azul institucional elegante
-  static const Color accentColor = Color(0xFFF9A825);  // Amarillo dorado colombiano
-  static const Color secondaryColor = Color(0xFFC62828); // Rojo acento
-  static const Color scaffoldBg = Color(0xFFF4F6F9);   // Fondo claro agradable
+  static const Color primaryColor = Color(0xFF0F3B66);
+  static const Color accentColor = Color(0xFFF9A825);
+  static const Color secondaryColor = Color(0xFFC62828);
+  static const Color scaffoldBg = Color(0xFFF4F6F9);
 
   static ThemeData get lightTheme {
     return ThemeData(
@@ -32,9 +31,7 @@ class AppTheme {
       ),
       cardTheme: CardThemeData(
         elevation: 2,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         color: Colors.white,
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       ),

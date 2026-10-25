@@ -34,7 +34,8 @@ class TouristAttraction {
     return TouristAttraction(
       id: json['id'] as int? ?? 0,
       name: json['name'] as String? ?? 'Atracción turística',
-      description: json['description'] as String? ?? 'Sin descripción disponible',
+      description:
+          json['description'] as String? ?? 'Sin descripción disponible',
       images: imageList,
       latitude: json['latitude']?.toString(),
       longitude: json['longitude']?.toString(),

@@ -34,11 +34,7 @@ class EndpointCard extends StatelessWidget {
                   color: iconColor.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Icon(
-                  icon,
-                  color: iconColor,
-                  size: 28,
-                ),
+                child: Icon(icon, color: iconColor, size: 28),
               ),
               const SizedBox(width: 16),
               Expanded(

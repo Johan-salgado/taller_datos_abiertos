@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
 import '../models/president.dart';
 import '../routes/app_router.dart';
 import '../services/api_service.dart';
@@ -32,14 +33,14 @@ class _PresidentsListViewState extends State<PresidentsListView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Presidentes de Colombia'),
-      ),
+      appBar: AppBar(title: const Text('Presidentes de Colombia')),
       body: FutureBuilder<List<President>>(
         future: _futurePresidents,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const LoadingView(message: 'Cargando registros históricos...');
+            return const LoadingView(
+              message: 'Cargando registros históricos...',
+            );
           }
 
           if (snapshot.hasError) {
@@ -65,27 +66,38 @@ class _PresidentsListViewState extends State<PresidentsListView> {
                 final president = presidents[index];
                 return Card(
                   child: ListTile(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
+                    ),
                     leading: ClipRRect(
                       borderRadius: BorderRadius.circular(24),
-                      child: president.image != null && president.image!.isNotEmpty
+                      child:
+                          president.image != null && president.image!.isNotEmpty
                           ? Image.network(
                               president.image!,
                               width: 48,
                               height: 48,
                               fit: BoxFit.cover,
-                              errorBuilder: (context, error, stackTrace) => Container(
-                                width: 48,
-                                height: 48,
-                                color: Colors.grey.shade200,
-                                child: const Icon(Icons.person, color: Colors.grey),
-                              ),
+                              errorBuilder: (context, error, stackTrace) =>
+                                  Container(
+                                    width: 48,
+                                    height: 48,
+                                    color: Colors.grey.shade200,
+                                    child: const Icon(
+                                      Icons.person,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
                             )
                           : Container(
                               width: 48,
                               height: 48,
                               color: Colors.grey.shade200,
-                              child: const Icon(Icons.person, color: Colors.grey),
+                              child: const Icon(
+                                Icons.person,
+                                color: Colors.grey,
+                              ),
                             ),
                     ),
                     title: Text(
@@ -98,12 +110,18 @@ class _PresidentsListViewState extends State<PresidentsListView> {
                         const SizedBox(height: 2),
                         Text(
                           president.politicalParty ?? 'Partido no especificado',
-                          style: TextStyle(color: Colors.grey.shade700, fontSize: 13),
+                          style: TextStyle(
+                            color: Colors.grey.shade700,
+                            fontSize: 13,
+                          ),
                         ),
                         if (president.startPeriodDate != null)
                           Text(
                             'Período: ${president.startPeriodDate} - ${president.endPeriodDate ?? "Presente"}',
-                            style: TextStyle(color: Colors.grey.shade500, fontSize: 12),
+                            style: TextStyle(
+                              color: Colors.grey.shade500,
+                              fontSize: 12,
+                            ),
                           ),
                       ],
                     ),

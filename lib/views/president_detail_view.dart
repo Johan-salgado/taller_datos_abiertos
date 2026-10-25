@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../models/president.dart';
 
 class PresidentDetailView extends StatelessWidget {
@@ -9,15 +10,12 @@ class PresidentDetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(president.fullName),
-      ),
+      appBar: AppBar(title: Text(president.fullName)),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Tarjeta de Perfil con Foto
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
@@ -26,24 +24,35 @@ class PresidentDetailView extends StatelessWidget {
                     Center(
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(16),
-                        child: president.image != null && president.image!.isNotEmpty
+                        child:
+                            president.image != null &&
+                                president.image!.isNotEmpty
                             ? Image.network(
                                 president.image!,
                                 height: 200,
                                 width: 160,
                                 fit: BoxFit.cover,
-                                errorBuilder: (context, error, stackTrace) => Container(
-                                  height: 160,
-                                  width: 160,
-                                  color: Colors.grey.shade200,
-                                  child: const Icon(Icons.person, size: 64, color: Colors.grey),
-                                ),
+                                errorBuilder: (context, error, stackTrace) =>
+                                    Container(
+                                      height: 160,
+                                      width: 160,
+                                      color: Colors.grey.shade200,
+                                      child: const Icon(
+                                        Icons.person,
+                                        size: 64,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
                               )
                             : Container(
                                 height: 160,
                                 width: 160,
                                 color: Colors.grey.shade200,
-                                child: const Icon(Icons.person, size: 64, color: Colors.grey),
+                                child: const Icon(
+                                  Icons.person,
+                                  size: 64,
+                                  color: Colors.grey,
+                                ),
                               ),
                       ),
                     ),
@@ -58,7 +67,10 @@ class PresidentDetailView extends StatelessWidget {
                     ),
                     const SizedBox(height: 6),
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 6,
+                      ),
                       decoration: BoxDecoration(
                         color: const Color(0xFF1E88E5).withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(20),
@@ -76,10 +88,7 @@ class PresidentDetailView extends StatelessWidget {
                 ),
               ),
             ),
-
             const SizedBox(height: 12),
-
-            // Tarjeta de Mandato
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -88,12 +97,19 @@ class PresidentDetailView extends StatelessWidget {
                   children: [
                     const Text(
                       'Período Presidencial',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     const Divider(height: 20),
                     Row(
                       children: [
-                        const Icon(Icons.calendar_today_outlined, size: 20, color: Color(0xFF1E88E5)),
+                        const Icon(
+                          Icons.calendar_today_outlined,
+                          size: 20,
+                          color: Color(0xFF1E88E5),
+                        ),
                         const SizedBox(width: 12),
                         Text(
                           'Inicio: ${president.startPeriodDate ?? "No disponible"}',
@@ -104,7 +120,11 @@ class PresidentDetailView extends StatelessWidget {
                     const SizedBox(height: 8),
                     Row(
                       children: [
-                        const Icon(Icons.event_available_outlined, size: 20, color: Color(0xFF1E88E5)),
+                        const Icon(
+                          Icons.event_available_outlined,
+                          size: 20,
+                          color: Color(0xFF1E88E5),
+                        ),
                         const SizedBox(width: 12),
                         Text(
                           'Fin: ${president.endPeriodDate ?? "En ejercicio"}',
@@ -116,10 +136,7 @@ class PresidentDetailView extends StatelessWidget {
                 ),
               ),
             ),
-
             const SizedBox(height: 12),
-
-            // Tarjeta de Biografía
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -128,7 +145,10 @@ class PresidentDetailView extends StatelessWidget {
                   children: [
                     const Text(
                       'Reseña Histórica',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     const Divider(height: 20),
                     Text(

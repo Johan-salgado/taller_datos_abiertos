@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
 import '../models/department.dart';
 import '../routes/app_router.dart';
 import '../services/api_service.dart';
@@ -32,18 +33,16 @@ class _DepartmentsListViewState extends State<DepartmentsListView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Departamentos'),
-      ),
+      appBar: AppBar(title: const Text('Departamentos')),
       body: FutureBuilder<List<Department>>(
         future: _futureDepartments,
         builder: (context, snapshot) {
-          // 1. Estado de Carga
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const LoadingView(message: 'Consultando departamentos de Colombia...');
+            return const LoadingView(
+              message: 'Consultando departamentos de Colombia...',
+            );
           }
 
-          // 2. Estado de Error
           if (snapshot.hasError) {
             return ErrorView(
               message: snapshot.error.toString(),
@@ -51,7 +50,6 @@ class _DepartmentsListViewState extends State<DepartmentsListView> {
             );
           }
 
-          // 3. Estado de Éxito
           final departments = snapshot.data ?? [];
           if (departments.isEmpty) {
             return const Center(
@@ -68,13 +66,14 @@ class _DepartmentsListViewState extends State<DepartmentsListView> {
                 final department = departments[index];
                 return Card(
                   child: ListTile(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
+                    ),
                     leading: CircleAvatar(
-                      backgroundColor: const Color(0xFF0F3B66).withValues(alpha: 0.1),
-                      child: const Icon(
-                        Icons.map,
-                        color: Color(0xFF0F3B66),
-                      ),
+                      backgroundColor: const Color(0xFF0F3B66)
+                          .withValues(alpha: 0.1),
+                      child: const Icon(Icons.map, color: Color(0xFF0F3B66)),
                     ),
                     title: Text(
                       department.name,

@@ -28,7 +28,8 @@ class Department {
     return Department(
       id: json['id'] as int? ?? 0,
       name: json['name'] as String? ?? 'Sin nombre',
-      description: json['description'] as String? ?? 'Sin descripción disponible',
+      description:
+          json['description'] as String? ?? 'Sin descripción disponible',
       capital: capName,
       municipalities: json['municipalities'] as int? ?? 0,
       surface: json['surface'] as num? ?? 0,

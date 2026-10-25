@@ -29,8 +29,11 @@ class President {
       image: json['image'] as String?,
       startPeriodDate: json['startPeriodDate'] as String?,
       endPeriodDate: json['endPeriodDate'] as String?,
-      politicalParty: json['politicalParty'] as String? ?? 'Independiente / No especificado',
-      description: json['description'] as String? ?? 'Sin información disponible',
+      politicalParty:
+          json['politicalParty'] as String? ??
+          'Independiente / No especificado',
+      description:
+          json['description'] as String? ?? 'Sin información disponible',
     );
   }
 

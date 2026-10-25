@@ -17,9 +17,8 @@ import '../views/dishes_list_view.dart';
 import '../views/dish_detail_view.dart';
 
 class AppRouter {
-  // Nombres de rutas para navegación declarativa con nombre (go_router)
   static const String home = 'home';
-  
+
   static const String departmentsList = 'departments_list';
   static const String departmentDetail = 'department_detail';
 
@@ -40,7 +39,6 @@ class AppRouter {
         name: home,
         builder: (context, state) => const DashboardView(),
         routes: [
-          // Rutas para Departamentos
           GoRoute(
             path: 'departments',
             name: departmentsList,
@@ -56,8 +54,6 @@ class AppRouter {
               ),
             ],
           ),
-
-          // Rutas para Presidentes
           GoRoute(
             path: 'presidents',
             name: presidentsList,
@@ -73,8 +69,6 @@ class AppRouter {
               ),
             ],
           ),
-
-          // Rutas para Atracciones Turísticas
           GoRoute(
             path: 'attractions',
             name: attractionsList,
@@ -90,8 +84,6 @@ class AppRouter {
               ),
             ],
           ),
-
-          // Rutas para Platos Típicos
           GoRoute(
             path: 'dishes',
             name: dishesList,

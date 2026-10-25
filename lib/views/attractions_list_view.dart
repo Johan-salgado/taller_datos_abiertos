@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
 import '../models/tourist_attraction.dart';
 import '../routes/app_router.dart';
 import '../services/api_service.dart';
@@ -32,14 +33,14 @@ class _AttractionsListViewState extends State<AttractionsListView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Atracciones Turísticas'),
-      ),
+      appBar: AppBar(title: const Text('Atracciones Turísticas')),
       body: FutureBuilder<List<TouristAttraction>>(
         future: _futureAttractions,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const LoadingView(message: 'Descubriendo lugares turísticos...');
+            return const LoadingView(
+              message: 'Descubriendo lugares turísticos...',
+            );
           }
 
           if (snapshot.hasError) {
@@ -67,7 +68,10 @@ class _AttractionsListViewState extends State<AttractionsListView> {
 
                 return Card(
                   child: ListTile(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
+                    ),
                     leading: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: hasImage
@@ -76,18 +80,25 @@ class _AttractionsListViewState extends State<AttractionsListView> {
                               width: 52,
                               height: 52,
                               fit: BoxFit.cover,
-                              errorBuilder: (context, error, stackTrace) => Container(
-                                width: 52,
-                                height: 52,
-                                color: Colors.grey.shade200,
-                                child: const Icon(Icons.landscape, color: Colors.grey),
-                              ),
+                              errorBuilder: (context, error, stackTrace) =>
+                                  Container(
+                                    width: 52,
+                                    height: 52,
+                                    color: Colors.grey.shade200,
+                                    child: const Icon(
+                                      Icons.landscape,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
                             )
                           : Container(
                               width: 52,
                               height: 52,
                               color: Colors.grey.shade200,
-                              child: const Icon(Icons.landscape, color: Colors.grey),
+                              child: const Icon(
+                                Icons.landscape,
+                                color: Colors.grey,
+                              ),
                             ),
                     ),
                     title: Text(
@@ -98,7 +109,10 @@ class _AttractionsListViewState extends State<AttractionsListView> {
                       attraction.cityName != null
                           ? 'Ubicación: ${attraction.cityName}'
                           : 'Colombia',
-                      style: TextStyle(color: Colors.grey.shade600, fontSize: 13),
+                      style: TextStyle(
+                        color: Colors.grey.shade600,
+                        fontSize: 13,
+                      ),
                     ),
                     trailing: const Icon(
                       Icons.arrow_forward_ios,

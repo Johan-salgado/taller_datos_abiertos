@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../models/typical_dish.dart';
 
 class DishDetailView extends StatelessWidget {
@@ -11,15 +12,12 @@ class DishDetailView extends StatelessWidget {
     final hasImage = dish.imageUrl != null && dish.imageUrl!.isNotEmpty;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(dish.name),
-      ),
+      appBar: AppBar(title: Text(dish.name)),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Cabecera con Imagen
             Card(
               clipBehavior: Clip.antiAlias,
               child: Column(
@@ -33,14 +31,22 @@ class DishDetailView extends StatelessWidget {
                       errorBuilder: (context, error, stackTrace) => Container(
                         height: 180,
                         color: Colors.grey.shade200,
-                        child: const Icon(Icons.restaurant, size: 60, color: Colors.grey),
+                        child: const Icon(
+                          Icons.restaurant,
+                          size: 60,
+                          color: Colors.grey,
+                        ),
                       ),
                     )
                   else
                     Container(
                       height: 180,
                       color: Colors.grey.shade200,
-                      child: const Icon(Icons.restaurant, size: 60, color: Colors.grey),
+                      child: const Icon(
+                        Icons.restaurant,
+                        size: 60,
+                        color: Colors.grey,
+                      ),
                     ),
                   Padding(
                     padding: const EdgeInsets.all(16.0),
@@ -58,7 +64,11 @@ class DishDetailView extends StatelessWidget {
                           const SizedBox(height: 6),
                           Row(
                             children: [
-                              const Icon(Icons.place, size: 16, color: Color(0xFFFB8C00)),
+                              const Icon(
+                                Icons.place,
+                                size: 16,
+                                color: Color(0xFFFB8C00),
+                              ),
                               const SizedBox(width: 4),
                               Text(
                                 'Departamento de ${dish.departmentName}',
@@ -76,10 +86,7 @@ class DishDetailView extends StatelessWidget {
                 ],
               ),
             ),
-
             const SizedBox(height: 12),
-
-            // Ingredientes
             if (dish.ingredients != null && dish.ingredients!.isNotEmpty)
               Card(
                 child: Padding(
@@ -89,11 +96,18 @@ class DishDetailView extends StatelessWidget {
                     children: [
                       const Row(
                         children: [
-                          Icon(Icons.inventory_2_outlined, color: Color(0xFFFB8C00), size: 20),
+                          Icon(
+                            Icons.inventory_2_outlined,
+                            color: Color(0xFFFB8C00),
+                            size: 20,
+                          ),
                           SizedBox(width: 8),
                           Text(
                             'Ingredientes Principales',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),
@@ -110,10 +124,7 @@ class DishDetailView extends StatelessWidget {
                   ),
                 ),
               ),
-
             const SizedBox(height: 12),
-
-            // Descripción
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -122,7 +133,10 @@ class DishDetailView extends StatelessWidget {
                   children: [
                     const Text(
                       'Tradición y Descripción',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     const Divider(height: 20),
                     Text(

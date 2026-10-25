@@ -4,11 +4,7 @@ class ErrorView extends StatelessWidget {
   final String message;
   final VoidCallback onRetry;
 
-  const ErrorView({
-    super.key,
-    required this.message,
-    required this.onRetry,
-  });
+  const ErrorView({super.key, required this.message, required this.onRetry});
 
   @override
   Widget build(BuildContext context) {
@@ -26,19 +22,13 @@ class ErrorView extends StatelessWidget {
             const SizedBox(height: 16),
             const Text(
               'Ocurrió un inconveniente',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
             Text(
               message,
               textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.grey.shade600,
-                fontSize: 14,
-              ),
+              style: TextStyle(color: Colors.grey.shade600, fontSize: 14),
             ),
             const SizedBox(height: 20),
             ElevatedButton.icon(
