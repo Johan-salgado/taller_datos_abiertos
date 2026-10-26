@@ -174,8 +174,28 @@ context.pushNamed(
 ```
 
 ---
+## 7. Capturas de Pantalla
 
-## 7. Manejo de Estados
+### Dashboard
+![Dashboard](docs/screenshots/dashboard.png)
+
+### Listado (Departamentos)
+![Listado de departamentos](docs/screenshots/listado.png)
+
+### Detalle (Departamento)
+![Detalle de departamento](docs/screenshots/detalle.png)
+
+### Otros endpoints
+![Listado de platos típicos](docs/screenshots/listado_platos.png)
+![Detalle de plato típico](docs/screenshots/detalle_plato.png)
+
+### Estado de error (sin conexión)
+Se desactivó la red del emulador para provocar un `SocketException`; la app muestra un mensaje amigable y el botón **Reintentar**.
+![Estado de error](docs/screenshots/error.png)
+
+---
+
+## 8. Manejo de Estados
 La aplicación gestiona los tres estados de UI de manera limpia mediante `FutureBuilder` y `RefreshIndicator`:
 1. **Cargando (`LoadingView`):** Indicador de progreso circular con mensaje explicativo contextual.
 2. **Éxito (`ListView.builder`):** Renderizado eficiente de la lista de elementos en tarjetas con soporte para *Pull to Refresh*.
@@ -183,7 +203,7 @@ La aplicación gestiona los tres estados de UI de manera limpia mediante `Future
 
 ---
 
-## 8. Flujo de Trabajo GitFlow
+## 9. Flujo de Trabajo GitFlow
 El repositorio utiliza el modelo GitFlow establecido:
 * `main`: Rama de código estable en producción.
 * `dev`: Rama de integración donde convergen las características.
@@ -199,7 +219,7 @@ El repositorio utiliza el modelo GitFlow establecido:
 
 ---
 
-## 9. Instrucciones para Ejecutar el Proyecto
+## 10. Instrucciones para Ejecutar el Proyecto
 
 1. Clonar el repositorio:
    ```bash
